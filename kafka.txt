@@ -1,0 +1,51 @@
+
+pre-requisito
+ docker installed
+
+#arquivo instruções para criar container
+dockerfile 
+
+#criar imagem
+docker build -t <nome-imagem> .
+
+#run container
+docker container run --name <nome> -p 3000:3000 <nome-imagem>
+
+#docker hub
+docker login
+
+docker tag <imagem-id> <nome-conta>/<nome-imagem>:tag
+
+docker push <nome-conta>/nome-imagem:tag
+
+docker pull <nome-conta>/nome-imagem:tag
+
+#docker-compose
+docker-compose -f docker-compose.yml up -d
+
+#shell cmd in container
+docker exec -it <container-name> /bin/sh
+
+docker exec -it <conteiner-name><command>
+
+
+#create file
+docker-compose.yml - imagens que serao inicializadas
+
+docker-compose -f docker-compose.yml up -d
+
+
+#shell cmd
+docker exec -it <container-name> /bin/sh
+
+#crete topic
+#acessar /opt/kafka/bin
+> kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partition 1 --topic topic-name
+> kafka-topics.sh --list --zookeeper zookeeper:2181
+
+
+#pip install kafka-python
+
+#Start API - criar image docker
+ python kafka_consumer.py
+ python kafka_producer.py - abrir outra sessao
